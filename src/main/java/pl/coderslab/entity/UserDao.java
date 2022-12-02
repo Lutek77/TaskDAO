@@ -22,7 +22,7 @@ public class UserDao {
             "select * from workshop2.users where id = ?;";
 
     public User create(User user) {
-        try (Connection conn = DbUtil.DbUtil.getConnection()) {
+        try (Connection conn = DbUtil.getConnection()) {
             PreparedStatement statement =
                     conn.prepareStatement(CREATE_USER_QUERY, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, user.getUserName());
